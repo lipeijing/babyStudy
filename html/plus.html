@@ -1,12 +1,13 @@
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="../js/math.js"></script>
 <script type="text/javascript">
 
 // 定数 -------------------------------------
 // 宿題数
-var totalTimes = 10
+var totalTimes = 30
 // 数字の範囲(1-9)
 var minNum = 1
 var maxNum = 9
@@ -29,10 +30,16 @@ $(document).ready(function(){
     $("#div1").hide();
     
     $("#txtResult").keydown(function() {
-             if (event.keyCode == "13") {//keyCode=13是回??
-                 $('#btnCommit').click();
-             }
-         });
+        if (event.keyCode == "13") {//keyCode=13は改行
+            $('#btnCommit').click();
+        }
+    });
+    
+    param = GetQueryString();
+    minNum = param["minNum"];
+    maxNum = param["maxNum"];
+    totalTimes = param["totalTimes"];
+
 });
 
 function getNum(){
